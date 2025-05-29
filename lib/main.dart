@@ -89,7 +89,7 @@ class Week3LabPage extends StatelessWidget {
             ),
           if (bottomText)
             Positioned(
-              bottom: 6,
+              bottom: 35,
               left: 0,
               right: 0,
               child: Center(
