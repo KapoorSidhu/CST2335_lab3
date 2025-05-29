@@ -12,8 +12,8 @@ class Week3LabPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildCenteredText('By Protein'),
-          _buildLeftAlignedText('Meat Selection'),
+          _buildLeftAlignedText('Not Sure about exactly which recipe your looking for? Do a search dive into our most popular categories'),
+          _buildCenteredText('By Meat'),
           _buildImageRow([
             {'label': 'Beef', 'file': 'pexels-photo-112781.png'},
             {'label': 'Chicken', 'file': 'food-dinner-lunch-chicken.png'},
