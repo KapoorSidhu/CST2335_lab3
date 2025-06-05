@@ -12,14 +12,15 @@ class Week3LabPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildLeftAlignedText('Not Sure about exactly which recipe your looking for? Do a search dive into our most popular categories'),
+          _buildLeftAlignedText(
+              'Not Sure about exactly which recipe your looking for? Do a search dive into our most popular categories'),
           _buildCenteredText('By Meat'),
           _buildImageRow([
             {'label': 'Beef', 'file': 'pexels-photo-112781.png'},
             {'label': 'Chicken', 'file': 'food-dinner-lunch-chicken.png'},
             {'label': 'Pork', 'file': 'pexels-photo-1251208.png'},
             {'label': 'Seafood', 'file': 'pexels-photo-725992.png'},
-          ], centerText: true),
+          ], topText: true, bottomText: true),
 
           _buildCenteredText('By Course'),
           _buildImageRow([
@@ -27,7 +28,7 @@ class Week3LabPage extends StatelessWidget {
             {'label': 'Salad', 'file': 'pexels-photo-257816.png'},
             {'label': 'Side Dishes', 'file': 'pexels-photo-2942319.png'},
             {'label': 'Crockpot', 'file': 'cheese-noodles-court-eat-delicious-39521.png'},
-          ], bottomText: true),
+          ], topText: true, bottomText: true),
 
           _buildCenteredText('By Dessert'),
           _buildImageRow([
@@ -35,9 +36,9 @@ class Week3LabPage extends StatelessWidget {
             {'label': 'Brownies', 'file': 'brownies.png'},
             {'label': 'Pies', 'file': 'pies.png'},
             {'label': 'Cookies', 'file': 'cookies.png'},
-          ], bottomText: true),
+          ], topText: true, bottomText: true),
 
-          SizedBox(height: 10),
+          SizedBox(height: 20),
         ],
       ),
     );
@@ -57,16 +58,18 @@ class Week3LabPage extends StatelessWidget {
     );
   }
 
-  Widget _buildImageRow(List<Map<String, String>> items, {bool centerText = false, bool bottomText = false}) {
+  Widget _buildImageRow(List<Map<String, String>> items,
+      {bool centerText = false, bool bottomText = false, bool topText = false}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: items.map((item) =>
-          _buildStackedCircle(item['label']!, item['file']!, centerText, bottomText)
+          _buildStackedCircle(item['label']!, item['file']!, centerText, bottomText, topText)
       ).toList(),
     );
   }
 
-  Widget _buildStackedCircle(String label, String filename, bool centerText, bool bottomText) {
+  Widget _buildStackedCircle(String label, String filename,
+      bool centerText, bool bottomText, bool topText) {
     return SizedBox(
       width: 100,
       height: 100,
@@ -87,9 +90,9 @@ class Week3LabPage extends StatelessWidget {
                 ),
               ),
             ),
-          if (bottomText)
+          if (topText)
             Positioned(
-              bottom: 35,
+              top: 35,
               left: 0,
               right: 0,
               child: Center(
